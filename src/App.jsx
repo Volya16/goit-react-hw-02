@@ -17,6 +17,13 @@ export default function App() {
   });
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+  const resetFeedback = () => {
+    setFeedback({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  };
 
   const updateFeedback = (feedbackType) => {
     console.log("Feedback Type:", feedbackType);
@@ -34,6 +41,8 @@ export default function App() {
         good={feedback.good}
         neutral={feedback.neutral}
         bad={feedback.bad}
+        total={totalFeedback}
+        reset={resetFeedback}
       />
       {totalFeedback > 0 ? (
         <Feedback
